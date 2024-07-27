@@ -5,6 +5,7 @@ export interface SelectDropdownProps {
   isMulti?: boolean;
   withSearch?: boolean;
   withInput?: boolean;
+  withPortal?: boolean;
   value?: ValueDropdown | ValueDropdown[];
   options: ValueDropdown[];
   className?: string;

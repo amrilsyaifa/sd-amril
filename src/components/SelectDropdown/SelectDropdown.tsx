@@ -118,7 +118,7 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
           </div>
           {/* Dropdown */}
           {open && (
-            <div className="absolute shadow top-100 bg-white z-40 w-full lef-0 rounded">
+            <div className="absolute shadow top-100 bg-white max-floating w-full lef-0 rounded">
               {withSearch && (
                 <SearchInput
                   value={search}
@@ -131,6 +131,11 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
                     const isSelected = newValues.some(
                       (val) => val?.value === option.value
                     );
+
+                    const textColor = option.color
+                      ? `text-[${option.color}]`
+                      : "text-gray-800";
+
                     return (
                       <div
                         onClick={() =>
@@ -138,7 +143,7 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
                         }
                         key={option.value}
                         className={classNames(
-                          "cursor-pointer w-full border-gray-100 rounded-t hover:bg-blue-100",
+                          `cursor-pointer w-full border-gray-100 rounded-t hover:bg-blue-100`,
                           {
                             "border-b": idx !== options.length - 1,
                             "bg-blue-100": isSelected,
@@ -149,7 +154,14 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
                       >
                         <div className="flex w-full items-center p-2 pl-2 border-transparent border-l-2 relative hover:border-teal-100">
                           <div className="w-full items-center flex">
-                            <div className="mx-2 leading-6">{option.label}</div>
+                            <div
+                              className={classNames(
+                                "mx-2 leading-6",
+                                textColor
+                              )}
+                            >
+                              {option.label}
+                            </div>
                           </div>
                         </div>
                       </div>
