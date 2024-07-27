@@ -6,7 +6,7 @@ import { SelectDropdownProps } from "./interface";
 import { useState } from "react";
 
 const meta = {
-  title: "Form/SelectDropdown",
+  title: "Form/Select",
   component: SelectDropdown,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
